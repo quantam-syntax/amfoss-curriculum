@@ -36,5 +36,3 @@ This exercise helped me to:
 
 ---
 
-**Completed Page ✅**
-
