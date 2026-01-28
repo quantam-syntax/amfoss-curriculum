@@ -24,7 +24,6 @@ def create_playlist():
         "description": description or None,
     })
     db.session.commit()
-
     playlist_id = result.lastrowid
 
     return jsonify({
@@ -33,6 +32,7 @@ def create_playlist():
         "name": name,
         "description": description
     }), 201
+
 
 @playlists_bp.route("/playlists", methods=["GET"])
 def list_playlists():
@@ -49,13 +49,13 @@ def list_playlists():
     rows = db.session.execute(sql, {"user_id": user_id}).mappings().all()
     return jsonify([dict(r) for r in rows])
 
+
 @playlists_bp.route("/playlists/<int:playlist_id>", methods=["GET"])
 def get_playlist(playlist_id):
     user_id = request.args.get("user_id", type=int)
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400
 
-    # verify playlist belongs to user
     pl_sql = text("""
         SELECT id, user_id, name, description, created_at
         FROM playlists
@@ -85,6 +85,7 @@ def get_playlist(playlist_id):
         "tracks": [dict(t) for t in tracks],
     })
 
+
 @playlists_bp.route("/playlists/<int:playlist_id>/tracks", methods=["POST"])
 def add_track_to_playlist(playlist_id):
     data = request.get_json() or {}
@@ -94,7 +95,8 @@ def add_track_to_playlist(playlist_id):
         return jsonify({"error": "user_id is required"}), 400
 
     check_sql = text("""
-        SELECT id FROM playlists
+        SELECT id
+        FROM playlists
         WHERE id = :playlist_id AND user_id = :user_id
         LIMIT 1
     """)

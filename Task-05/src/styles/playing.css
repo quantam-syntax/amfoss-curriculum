@@ -1,6 +1,4 @@
-/* =========================
-   RIGHT PLAYER (LAYOUT SAFE)
-========================= */
+
 
 .right-player-container {
     width: 100%;
@@ -14,12 +12,10 @@
     flex-direction: column;
     align-items: center;
 
-    position: relative; /* stays in normal flow */
+    position: relative; 
 }
 
-/* =========================
-   ALBUM ART
-========================= */
+
 
 .album-art-wrapper {
     width: 90%;
@@ -37,9 +33,7 @@
     display: block;
 }
 
-/* =========================
-   TRACK INFO
-========================= */
+
 
 .track-info {
     width: 100%;
@@ -68,13 +62,8 @@
     cursor: pointer;
 }
 
-/* =========================
-   CONTROLS (PINNED TO BOTTOM)
-========================= */
-
 .main-controls {
-    margin-top: auto; /* THIS fixes height alignment */
-
+    margin-top: auto; 
     display: flex;
     align-items: center;
     gap: 20px;

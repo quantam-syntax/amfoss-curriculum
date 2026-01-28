@@ -1,0 +1,127 @@
+.playlist-section {
+    max-width: 640px;
+    margin: 20px auto 40px auto;
+}
+
+
+.playlist-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #b6c9e1;
+    border-radius: 20px;
+    padding: 20px 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.playlist-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.playlist-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #223347;
+}
+
+.playlist-input,
+.playlist-textarea {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid #9fb4d2;
+    padding: 10px 12px;
+    font-size: 14px;
+    background: #e8f0f7;
+    color: #1f2833;
+    outline: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.playlist-input:focus,
+.playlist-textarea:focus {
+    border-color: #6a9acb;
+    background: #f6fbff;
+}
+
+.playlist-textarea {
+    resize: none;
+    min-height: 80px;
+}
+
+.playlist-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+.playlist-submit {
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    background: #6a9acb;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.playlist-submit:hover:not(:disabled) {
+    background: #5786b4;
+    transform: translateY(-1px);
+}
+
+.playlist-submit:disabled {
+    background: #9abadd;
+    cursor: not-allowed;
+}
+
+.playlist-error {
+    color: #d9534f;
+    font-size: 13px;
+}
+
+.playlist-empty {
+    color: #44566e;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+.playlist-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.playlist-item {
+    background: #b6c9e1;
+    border-radius: 14px;
+    padding: 10px 14px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.playlist-item:hover {
+    border-color: #6a9acb;
+    background: #c8d6ea;
+    transform: translateY(-1px);
+}
+
+.playlist-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #223347;
+}
+
+.playlist-desc {
+    font-size: 13px;
+    color: #4a5a72;
+    margin-top: 2px;
+}

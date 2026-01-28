@@ -1,28 +1,41 @@
 import { Link } from "react-router-dom";
-import '../styles/sidebar.css'
-function Sidebar(){
-    return(
+import "../styles/sidebar.css";
+
+import logoImg from "../assets/logo.png";
+import homeImg from "../assets/home-button.png";
+import likedImg from "../assets/heart.png";
+import plusImg from "../assets/plus-sign.png";
+
+function Sidebar() {
+    return (
         <div className="sidebar-container">
             <div className="sidebar-logo">
-                <img src="src/assets/logo.png"className="logo" alt="Logo"/>
+                <img src={logoImg} className="logo" alt="Logo" />
             </div>
+
             <button className="home-logo">
-                <Link to='/home'>
-                    <img src="src/assets/home-button.png"className="home-image" alt="Home"/>
+                <Link to="/home">
+                    <img src={homeImg} className="home-image" alt="Home" />
                 </Link>
             </button>
+
             <button className="liked-songs">
-                <Link to='/liked'>
-                    <img src="src/assets/heart.png"className="likedsongimage" alt="Likedsongs"/>
+                <Link to="/liked">
+                    <img src={likedImg} className="likedsongimage" alt="Likedsongs" />
                 </Link>
             </button>
+
             <button className="playlist">
-                <Link to='/playlists'>
-                    <img src="src/assets/lib.png"className="playlistimage" alt="Createplaylist"/>
+                <Link to="/createplaylist">
+                    <img
+                        src={plusImg}
+                        className="playlistimage"
+                        alt="Createplaylist"
+                    />
                 </Link>
             </button>
         </div>
-
-    )
+    );
 }
+
 export default Sidebar;

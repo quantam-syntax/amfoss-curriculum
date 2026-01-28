@@ -1,5 +1,5 @@
 .song-card {
-    background: rgba(255, 255, 255, 0.25); /* Translucent glass effect */
+    background: rgba(255, 255, 255, 0.25); 
     backdrop-filter: blur(5px);
     padding: 12px;
     border-radius: 20px;
@@ -9,19 +9,19 @@
     transition: all 0.3s ease;
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%; /* Let the grid decide the width */
-    max-width: 180px; /* Optional cap */
+    width: 100%; 
+    max-width: 180px; 
 }
 
 .song-card:hover {
     background: rgba(255, 255, 255, 0.4);
-    transform: translateY(-5px); /* Lift effect */
+    transform: translateY(-5px); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-image-wrapper {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Keeps the image perfectly square */
+    aspect-ratio: 1 / 1; 
     border-radius: 15px;
     overflow: hidden;
     margin-bottom: 10px;
@@ -30,12 +30,12 @@
 .card-image-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Prevents image stretching */
+    object-fit: cover; 
 }
 
 .card-info {
     width: 100%;
-    text-align: left; /* Aligns text like Spotify/Apple Music */
+    text-align: left;
     padding: 0 4px;
 }
 
@@ -46,7 +46,7 @@
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Adds "..." if the name is too long */
+    text-overflow: ellipsis; 
 }
 
 .song-artist {

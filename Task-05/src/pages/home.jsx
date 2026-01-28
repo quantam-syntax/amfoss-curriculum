@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";      
 import "../styles/home.css";
 import Sidebar from "../components/sidebar.jsx";
 import Searchbar from "../components/searchbar.jsx";
@@ -10,16 +11,14 @@ function Home() {
     const [currentSong, setCurrentSong] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [recent, setRecent] = useState([]);
+    const [playlists, setPlaylists] = useState([]);     
     const audioRef = useRef(new Audio());
 
     const userId = parseInt(localStorage.getItem("userId"), 10);
+    const navigate = useNavigate();                    
 
     const loadRecent = async () => {
-        if (!userId) {
-            console.warn("No userId in localStorage, cannot load recent");
-            setRecent([]);
-            return;
-        }
+        if (!userId) return;
 
         try {
             const res = await fetch(
@@ -28,7 +27,6 @@ function Home() {
             const data = await res.json();
 
             if (!res.ok || !Array.isArray(data)) {
-                console.error("Failed to load recently played:", data);
                 setRecent([]);
                 return;
             }
@@ -44,6 +42,27 @@ function Home() {
             setRecent(mapped);
         } catch (err) {
             console.error("Failed to load recently played", err);
+        }
+    };
+
+    const loadPlaylists = async () => {
+        if (!userId) return;
+
+        try {
+            const res = await fetch(
+                `http://127.0.0.1:5000/api/playlists?user_id=${userId}`
+            );
+            const data = await res.json();
+
+            if (!res.ok || !Array.isArray(data)) {
+                console.error("Failed to load playlists:", data);
+                setPlaylists([]);
+                return;
+            }
+
+            setPlaylists(data);
+        } catch (err) {
+            console.error("Failed to load playlists", err);
         }
     };
 
@@ -120,6 +139,7 @@ function Home() {
 
     useEffect(() => {
         loadRecent();
+        loadPlaylists();  
 
         const handleEnded = () => setIsPlaying(false);
         const audio = audioRef.current;
@@ -129,10 +149,8 @@ function Home() {
             audio.removeEventListener("ended", handleEnded);
             audio.pause();
             audio.src = "";
-            setIsPlaying(false);
         };
-    }, []); 
-    const playlistData = [1, 2, 3, 4, 5, 6, 7];
+    }, []);
 
     return (
         <div className="home-page-layout">
@@ -143,7 +161,6 @@ function Home() {
 
                 <div className="content-inner-container">
                     <section className="grid-section">
-                        <h2 className="section-title1">Recently Played</h2>
 
                         {recent.length === 0 ? (
                             <p className="no-recent">No songs played yet</p>
@@ -159,15 +176,27 @@ function Home() {
                             </div>
                         )}
 
-                        <h2 className="section-title2">Playlist</h2>
-                        <div className="playlist-grid">
-                            {playlistData.map((i) => (
-                                <PlaylistCard key={`play1-${i}`} />
-                            ))}
-                            {playlistData.map((i) => (
-                                <PlaylistCard key={`play2-${i}`} />
-                            ))}
-                        </div>
+                        {playlists.length === 0 ? (
+                            <p className="no-recent">No playlists yet</p>
+                        ) : (
+                            <div className="playlist-grid">
+                                {playlists.map((pl) => (
+                                    <PlaylistCard
+                                        key={pl.id}
+                                        song={{
+                                            trackId: pl.id,              
+                                            trackName: pl.name,
+                                            artistName: pl.description || "Playlist",
+                                            artworkUrl100: null,         
+                                            previewUrl: null,
+                                        }}
+                                        onClick={() =>
+                                            navigate(`/playlists/${pl.id}`)
+                                        }
+                                    />
+                                ))}
+                            </div>
+                        )}
                     </section>
                 </div>
             </main>
