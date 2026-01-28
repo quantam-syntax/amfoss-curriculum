@@ -1,0 +1,37 @@
+.sidebar-container {
+    width: 90px;
+    flex: 0 0 90px;
+    height: 100%;
+    background-color: #B6C9E1;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    margin: 0;
+    position: relative;
+}
+
+.sidebar-logo {
+    margin-bottom: 30px;
+}
+
+.sidebar-logo .logo {
+    width: 48px;
+    height: 48px;
+}
+
+.sidebar-container button {
+    border: none;
+    background: transparent;
+    padding: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.sidebar-container button img {
+    width: 40px;
+    height: 40px;
+    display: block;
+}

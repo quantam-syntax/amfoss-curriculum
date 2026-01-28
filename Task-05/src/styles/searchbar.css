@@ -1,0 +1,93 @@
+.search-container {
+    position: relative; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    margin-top: 40px; 
+    padding-left: 10px; 
+    width: 100%;
+}
+
+.search-pill {
+    display: flex;
+    align-items: center;
+    background-color: #BDD4E7; 
+    border-radius: 50px;
+    padding: 12px 25px;
+    /* You can keep this width or make it smaller */
+    width: 60%; 
+    max-width: 700px;
+}
+.search-icon {
+    margin-right: 15px;
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    color: #333;
+    flex-grow: 1; 
+    padding: 5px;
+}
+
+.search-input::placeholder {
+    color: #4A607A;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #BDD4E7; 
+    border-radius: 50px;
+    padding: 0px 10px;
+    width: 80%;      
+    max-width: 800px; 
+    margin-top: 20px; 
+}
+
+.track-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.track-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.track-info a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.track-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    max-height: 350px;
+    overflow-y: auto;
+
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 999;
+}

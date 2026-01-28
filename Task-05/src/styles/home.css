@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bottom-player-height: 90px;
+}
+
+.home-page-layout {
+    display: flex;
+    flex-direction: row;         
+    align-items: stretch;      
+    width: 100vw;
+    height: calc(100vh - var(--bottom-player-height));
+    background-color: #8DB9D2;    
+
+    gap: 20px;
+    overflow: hidden;
+    padding: 16px 16px 0;
+}
+
+
+/* LEFT SIDEBAR */
+.sidebar-container {
+    width: 90px;
+    flex: 0 0 90px;
+    height: 100%;
+    background-color: #B6C9E1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    border-radius: 40px;
+}
+
+/* MAIN CONTENT */
+.main-content-area {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px 16px;
+    overflow: hidden;
+}
+
+/* SCROLLABLE CENTER PANEL */
+.content-inner-container {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #B6C9E1;
+    padding: 24px 32px 32px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* RIGHT PLAYER COLUMN */
+.right-player-sidebar-wrapper {
+    width: 350px;
+    flex: 0 0 350px;
+    height: 100%;
+    padding: 16px 0 16px 0;
+    display: flex;
+}
+
+/* SECTION WRAPPER */
+.grid-section {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* TITLES */
+.section-title1,
+.section-title2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    align-self: flex-start;
+    color: #5b6779;
+}
+
+.section-title1 {
+    margin: 0 0 12px 0;
+}
+
+.section-title2 {
+    margin: 40px 0 12px 0;
+}
+
+/* RECENTLY PLAYED horizontal list */
+.recently-played-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 4px;
+    overflow-x: auto;
+}
+
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.no-recent {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #444;
+    padding-left: 4px;
+}
